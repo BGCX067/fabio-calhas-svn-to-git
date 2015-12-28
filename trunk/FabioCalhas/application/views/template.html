@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<link rel="shortcut icon" href="http://demo.templatesquare.com/html/exprecious/images/content/favicon.ico" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="robots" content="index, follow" />
+<meta name="keywords" content="" />
+<meta name="title" content="" />
+<meta name="description" content="" />
+<title>Exprecious</title>
+<link rel="shortcut icon" href="images/favicon.ico" />
+<!-- ////////////////////////////////// -->
+<!-- //      Start Stylesheets       // -->
+<!-- ////////////////////////////////// -->
+<link href="styles/style.css" rel="stylesheet" type="text/css" />
+<link href="styles/prettyPhoto.css" rel="stylesheet"  type="text/css" media="screen" title="prettyPhoto main stylesheet" />
+<!-- ////////////////////////////////// -->
+<!-- //      Javascript Files        // -->
+<!-- ////////////////////////////////// -->
+<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/Maven_Pro_400.font.js"></script>
+<script type="text/javascript" src="js/Quicksand_Book_400.font.js"></script>
+<script type="text/javascript" src="js/jquery.cycle.all.min.js"></script>
+<script type="text/javascript" src="js/fade.js"></script>
+<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="js/contact.js"></script>
+<script type="text/javascript">
+	Cufon.replace('#menu li', {fontFamily: 'Maven Pro', hover:true});
+	Cufon.replace('h1, h2, h3, h4, h5, h6',  {fontFamily: 'Maven Pro', hover:true});
+	Cufon.replace('.pagetitle', {fontFamily: 'Quicksand Book', hover:true});
+	Cufon.replace('.headingsmall, .customquote, .boldtext', {fontFamily: 'Maven Pro'});
+</script>
+<script type="text/javascript">
+var $jts = jQuery.noConflict();
+  $jts(function() {
+  
+  
+  // background cycle
+    $jts('#bg-wrapper').cycle({
+        fx:     'fade', // You can choose effect do you like, for reference : http://www.malsup.com/jquery/cycle/browser.html
+        speed:  'slow',
+        timeout: 5000,
+		cleartype: true,  // true if clearType corrections should be applied (for IE) 
+        cleartypeNoBg: true, 
+		startingSlide : 0
+    });
+  
+  
+    // maincontent cycle
+	$jts('#maincontent').cycle({
+        fx:     'blindY', // You can choose effect do you like, for reference : http://www.malsup.com/jquery/cycle/browser.html
+        speed:  'slow',
+        timeout: 0,
+		cleartype: true,  // true if clearType corrections should be applied (for IE) 
+        cleartypeNoBg: true, 
+        pager:  '#menu',
+		startingSlide : 0,
+		after:onAfter,
+		pagerAnchorBuilder: function(idx, slide) {
+            // return sel string for existing anchor
+            return '#menu li:eq(' + (idx) + ') a';
+        }
+    });
+	
+	function onAfter(curr, next, opts, fwd){
+	    //get the height of the current slide
+	    var $ht =  $jts(this).height();
+		
+		Cufon.refresh();
+		
+	    //set the container's height to that of the current slide
+	    $jts(this).parent().animate({height: $ht});
+	}
+	
+	Cufon.refresh();
+	
+	 //portfolio gallery 
+	$jts("a[rel^='prettyPhoto']").prettyPhoto({animationSpeed:'slow',theme:'facebook',slideshow:2000});
+});
+
+
+
+</script>
+<style type="text/css">
+#bg-wrapper .bg1{
+	background:#fff url(images/bg1.jpg);
+}
+#bg-wrapper .bg2{
+	background:#fff url(images/bg2.jpg); 
+}
+#bg-wrapper .bg3{
+	background:#fff url(images/bg3.jpg); 
+}
+</style>
+</head>
+<body>
+<div id="bg-wrapper">
+	<div class="bg1"></div>
+	<div class="bg2"></div>
+	<div class="bg3"></div>
+</div>
+<div id="wrapper">
+	<div id="container">
+		<div id="top">
+			<div id="logo"><a href="index.html"><img src="images/logo.png" alt="" /></a></div><!-- end #top-->
+		</div><!-- end #top-->
+		<div id="content">
+			<div id="side">
+				<div id="mainmenu">
+					<ul id="menu">
+						<li><a href="index.html#">Home</a></li>
+						<li><a href="index.html#">About Us</a></li>
+						<li><a href="index.html#">Services</a></li>
+						<li><a href="index.html#">Portfolio</a></li>
+						<li><a href="index.html#">Blog</a></li>
+						<li><a href="index.html#">Contact Us</a></li>
+					</ul>
+				</div>
+			</div><!-- end #side-->
+			<div id="main">
+			<div id="maincontent">
+				
+				<!-- PAGE 1-->
+				<div class="page" id="page1">
+					<h1 class="pagetitle">Welcome</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mauris risus, viverra nec venenatis ut, commodo quis leo. Maecenas rutrum ipsum vel ipsum ullamcorper vel vestibulum enim ullamcorper. Praesent elit dui, tempor in fermentum nec, vulputate fermentum augue. In tristique tortor at eros dignissim gravida. Vivamus vel neque velit. Mauris rhoncus, sapien nec ultricies posuere, nibh massa pellentesque purus, vel porta orci lorem id arcu. Etiam a erat eros. Integer adipiscing leo sed massa auctor pretium. Donec porttitor mi non sapien tempus consequat.</p><br />
+                    
+					<div class="one_half">
+						<div class="one_fifth"><img src="images/icons/icon_tv.png" alt="" /></div>
+						<div class="four_fifth last">
+						<h4>Website Design</h4>
+						<p>Lorem ipsum dolor sit ametds, consectetur est adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget. Nullam ac turpis nisl.</p>
+						</div> 
+					</div>
+					<div class="one_half last">
+						<div class="one_fifth"><img src="images/icons/icon_folder.png" alt="" /></div>
+						<div class="four_fifth last">
+						<h4>Template Folder</h4>
+						<p>Lorem ipsum dolor sit ametds, consectetur est adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget. Nullam ac turpis nisl.</p> 
+						</div>
+					</div>
+					<div class="clear"></div><!-- end clear -->
+					<div class="one_half">
+						<div class="one_fifth"><img src="images/icons/icon_mobile.png" alt="" /></div>
+						<div class="four_fifth last">
+						<h4>Mobile Website</h4>
+						<p>Lorem ipsum dolor sit ametds, consectetur est adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget. Nullam ac turpis nisl.</p> 
+						</div>
+					</div>
+					<div class="one_half last">
+						<div class="one_fifth"><img src="images/icons/icon_movie.png" alt="" /></div>
+						<div class="four_fifth last">
+						<h4>Movie Maker</h4>
+						<p>Lorem ipsum dolor sit ametds, consectetur est adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget. Nullam ac turpis nisl.</p> 
+						</div>
+					</div>
+					<div class="clear"></div><!-- end clear -->
+					
+					<blockquote class="customquote"><div>In adipiscing, justo sit amet molestie tempor, lacus magna egestas orci, eget tempus magna. Maecenas ultrices venenatis is pulvinar.
+</div></blockquote>
+
+                    <br />
+				</div><!-- end #page1-->
+				
+				<!-- PAGE 2-->
+				<div id="page2" class="page">
+						<h1 class="pagetitle">About us</h1>
+						
+						<p class="boldtext">Be the leader! Win the world.Lorem ipsum dolor sit amet, consectetur 
+adipiscing elit. Ut aliquet lectus vel lacus tincidunt commodo.</p>
+						
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mauris risus, viverra nec venenatis ut, commodo quis leo. Maecenas rutrum ipsum vel ipsum ullamcorper vel vestibulum enim ullamcorper. Praesent elit dui, tempor in fermentum nec, vulputate fermentum augue. In tristique tortor at eros dignissim gravida. Vivamus vel neque velit. </p>
+					
+					<blockquote><p>Mauris rhoncus, sapien nec ultricies posuere, nibh massa pellentesque purus, vel porta orci lorem id arcu. Etiam a erat eros. Integer adipiscing leo sed massa auctor pretium. Donec porttitor mi non sapien tempus consequat. 
+					</p></blockquote>
+					<h3>Meet our team</h3>
+					
+					<ul class="list-row">
+						<li>
+							<div class="one_third">
+								<img src="images/content/pic1.jpg" alt="" class="imgframe" />
+							</div>
+							<div class="">
+								<strong>Diane Swan</strong><br />
+								<span class="txt1">Founder - Strategist</span><br /><br />
+								<span>Nam ac quam quam. Quisque consectetur suscipit aliquam. Aliquam pharetra, ipsum eget iaculis viverra, urna augue suscipit erat, ac elementum velit magna. </span>
+							</div>
+							<div class="clear"></div>
+						</li>
+						<li>
+							<div class="one_third">
+								<img src="images/content/pic2.jpg" alt="" class="imgframe" />
+							</div>
+							<div class="">
+								<strong>Florence Doe</strong><br />
+								<span class="txt1">Photographer</span><br /><br />
+								<span>Nam ac quam quam. Quisque consectetur suscipit aliquam. Aliquam pharetra, ipsum eget iaculis viverra, urna augue suscipit erat, ac elementum velit magna. </span>
+							</div>
+							<div class="clear"></div>
+						</li>
+						<li>
+							<div class="one_third">
+								<img src="images/content/pic3.jpg" alt="" class="imgframe" />
+							</div>
+							<div class="">
+								<strong>John Dante</strong><br />
+								<span class="txt1">Managing Director</span><br /><br />
+								<span>Nam ac quam quam. Quisque consectetur suscipit aliquam. Aliquam pharetra, ipsum eget iaculis viverra, urna augue suscipit erat, ac elementum velit magna. </span>
+							</div>
+							<div class="clear"></div>
+						</li>
+					</ul>
+					
+				</div><!-- end #page2-->
+				
+				<!-- PAGE 3-->
+				<div class="page" id="page3">
+					<h1 class="pagetitle">Our Services</h1>
+					<ul class="list-row">
+					<li><div class="title-icon"><img src="images/icons/icon1.png" alt="" class="alignleft" /><h4>Template Design</h4></div><span>Etiam dapibus, nisi sit amet luctus venenatis, lorem elit cursus diam, ut cursus magna dolor a est. Phasellus sed nunc a velit imperdiet placerat. Aliquam tincidunt aliquam tempus. Nunc vitae nunc congue sem adipiscing vulputate. Sed odio elit, dictum vitae sagittis eget, auctor sed mi. Integer dapibus convallis hendrerit. Nunc rhoncus tellus in ipsum lacinia tincidunt id ut nisl.</span></li>
+					<li><div class="title-icon"><img src="images/icons/icon2.png" alt="" class="alignleft" /><h4>Website Development</h4></div><span>Etiam dapibus, nisi sit amet luctus venenatis, lorem elit cursus diam, ut cursus magna dolor a est. Phasellus sed nunc a velit imperdiet placerat. Aliquam tincidunt aliquam tempus. Nunc vitae nunc congue sem adipiscing vulputate. Sed odio elit, dictum vitae sagittis eget, auctor sed mi. Integer dapibus convallis hendrerit. Nunc rhoncus tellus in ipsum lacinia tincidunt id ut nisl.</span></li>
+					<li><div class="title-icon"><img src="images/icons/icon3.png" alt="" class="alignleft" /><h4>System Web Developmet</h4></div><span>Etiam dapibus, nisi sit amet luctus venenatis, lorem elit cursus diam, ut cursus magna dolor a est. Phasellus sed nunc a velit imperdiet placerat. Aliquam tincidunt aliquam tempus. Nunc vitae nunc congue sem adipiscing vulputate. Sed odio elit, dictum vitae sagittis eget, auctor sed mi. Integer dapibus convallis hendrerit. Nunc rhoncus tellus in ipsum lacinia tincidunt id ut nisl.</span></li>
+					<li><div class="title-icon"><img src="images/icons/icon4.png" alt="" class="alignleft" /><h4>Customize PSD Templates Design</h4></div><span>Etiam dapibus, nisi sit amet luctus venenatis, lorem elit cursus diam, ut cursus magna dolor a est. Phasellus sed nunc a velit imperdiet placerat. Aliquam tincidunt aliquam tempus. Nunc vitae nunc congue sem adipiscing vulputate. Sed odio elit, dictum vitae sagittis eget, auctor sed mi. Integer dapibus convallis hendrerit. Nunc rhoncus tellus in ipsum lacinia tincidunt id ut nisl.</span></li>
+					</ul>
+					<div class="clear"></div><!-- clear float -->
+				</div><!-- end #page3-->
+				
+				<!-- PAGE 4-->
+				<div class="page" id="page4">
+					<h1 class="pagetitle">Our Portfolio</h1>
+					<div id="ts-display-portfolio">
+					<ul class="ts-display-pf-col-3">
+						<li>
+							<div class="ts-display-pf-img">
+								<a class="image" href="images/content/pf/pflarge.jpg" rel="prettyPhoto[mixed]" >
+								<span class="rollover"></span>
+								<img src="images/content/pf/pf1.jpg" alt=""/></a>							</div>
+						</li>
+						<li>
+							<div class="ts-display-pf-img">
+								<a class="image" href="images/content/pf/pflarge.jpg" rel="prettyPhoto[mixed]" >
+								<span class="rollover"></span>
+								<img src="images/content/pf/pf2.jpg" alt="" /></a>							</div>
+						</li>
+						<li class="nomargin">
+							<div class="ts-display-pf-img">
+								<a class="image" href="images/content/pf/pflarge.jpg" rel="prettyPhoto[mixed]" >
+								<span class="rollover"></span>
+								<img src="images/content/pf/pf3.jpg" alt="" /></a>							</div>
+						</li>
+						<li>
+							<div class="ts-display-pf-img">
+								<a class="image" href="images/content/pf/pflarge.jpg" rel="prettyPhoto[mixed]" >
+								<span class="rollover"></span>
+								<img src="images/content/pf/pf4.jpg" alt=""/></a>							</div>
+						</li>
+						<li>
+							<div class="ts-display-pf-img">
+								<a class="image" href="images/content/pf/pflarge.jpg" rel="prettyPhoto[mixed]" >
+								<span class="rollover"></span>
+								<img src="images/content/pf/pf5.jpg" alt=""/></a>							</div>
+						</li>
+						<li class="nomargin">
+							<div class="ts-display-pf-img">
+								<a class="image" href="images/content/pf/pflarge.jpg" rel="prettyPhoto[mixed]" >
+								<span class="rollover"></span>
+								<img src="images/content/pf/pf6.jpg" alt="" /></a>							</div>
+						</li>
+						<li>
+							<div class="ts-display-pf-img">
+								<a class="image" href="images/content/pf/pflarge.jpg" rel="prettyPhoto[mixed]" >
+								<span class="rollover"></span>
+								<img src="images/content/pf/pf7.jpg" alt="" /></a>							</div>
+						</li>
+						<li>
+							<div class="ts-display-pf-img">
+								<a class="image" href="images/content/pf/pflarge.jpg" rel="prettyPhoto[mixed]" >
+								<span class="rollover"></span>
+								<img src="images/content/pf/pf8.jpg" alt=""/></a>							</div>
+						</li>
+						<li class="nomargin">
+							<div class="ts-display-pf-img">
+								<a class="image" href="images/content/pf/pflarge.jpg" rel="prettyPhoto[mixed]" >
+								<span class="rollover"></span>
+								<img src="images/content/pf/pf9.jpg" alt=""/></a>							</div>
+						</li>
+						<li>
+							<div class="ts-display-pf-img">
+								<a class="image" href="images/content/pf/pflarge.jpg" rel="prettyPhoto[mixed]" >
+								<span class="rollover"></span>
+								<img src="images/content/pf/pf10.jpg" alt="" /></a>							</div>
+						</li>
+						<li>
+							<div class="ts-display-pf-img">
+								<a class="image" href="images/content/pf/pflarge.jpg" rel="prettyPhoto[mixed]" >
+								<span class="rollover"></span>
+								<img src="images/content/pf/pf11.jpg" alt="" /></a>							</div>
+						</li>
+						<li class="nomargin">
+							<div class="ts-display-pf-img">
+								<a class="image" href="images/content/pf/pflarge.jpg" rel="prettyPhoto[mixed]" >
+								<span class="rollover"></span>
+								<img src="images/content/pf/pf12.jpg" alt=""/></a>							</div>
+						</li>
+						<li>
+							<div class="ts-display-pf-img">
+								<a class="image" href="images/content/pf/pflarge.jpg" rel="prettyPhoto[mixed]" >
+								<span class="rollover"></span>
+								<img src="images/content/pf/pf13.jpg" alt="" /></a>							</div>
+						</li>
+						<li>
+							<div class="ts-display-pf-img">
+								<a class="image" href="images/content/pf/pflarge.jpg" rel="prettyPhoto[mixed]" >
+								<span class="rollover"></span>
+								<img src="images/content/pf/pf14.jpg" alt="" /></a>							</div>
+						</li>
+						<li class="nomargin">
+							<div class="ts-display-pf-img">
+								<a class="image" href="images/content/pf/pflarge.jpg" rel="prettyPhoto[mixed]" >
+								<span class="rollover"></span>
+								<img src="images/content/pf/pf15.jpg" alt=""/></a>							</div>
+						</li>
+					</ul>
+					<div class="clear"></div>
+					</div><!-- end #ts-display-portfolio -->
+					<div class="pagenavi">
+						<a href="index.html#" class="page">1</a><span class="current">2</span><a href="index.html#" class="nextpostslink">&raquo;</a>					</div><!-- end pagenavi -->
+					<div class="clear"></div><!-- clear float -->
+				</div><!-- end #page4-->
+				
+				<!-- PAGE 5-->
+				<div class="page" id="page5">
+					<h1 class="pagetitle">Our blog</h1>
+					<p>Maecenas ac ligula felis. Morbi nulla eros, fermentum eu dictum id, molestie quis odio. Proin iaculis, sapien ac congue tincidunt, risus ipsum bibendum justo, sed pharetra nulla lectus at velit. Vestibulum vel enim quis augue elementum eleifend. In vulputate, lectus non tristique hendrerit, neque nibh hendrerit mi, sed molestie diam lectus at nisi.  </p>
+					<div class="post">
+						<div class="post-img"><img src="images/content/post1.jpg" alt="" class="imgframe" /></div>
+						<div class="entry">
+							<span class="entry-utility">June 20, 2011 | Posted by: <a href="index.html#">Admin</a> | <a href="index.html#">15 Comments</a></span>
+							<h2 class="posttitle">Lorem ipsum dolor sit amet consectetur.</h2>
+							<div class="entry-content">
+							<p>Pellentesque erat turpis, interdum ut sagittis suscipit, pellentesque dignissim tellus. Fusce posuere erat et mauris consectetur ac consequat eros varius.</p><a href="index.html#" class="postmore">Read More...</a>							</div>
+						</div>
+						<div class="clear"></div>
+					</div><!-- post1-->
+					<div class="post">
+						<div class="post-img"><img src="images/content/post2.jpg" alt="" class="imgframe" /></div>
+						<div class="entry">
+							<span class="entry-utility">June 20, 2011 | Posted by: <a href="index.html#">Admin</a> | <a href="index.html#">15 Comments</a></span>
+							<h2 class="posttitle">Lorem ipsum dolor sit amet consectetur.</h2>
+							<div class="entry-content">
+							<p>Pellentesque erat turpis, interdum ut sagittis suscipit, pellentesque dignissim tellus. Fusce posuere erat et mauris consectetur ac consequat eros varius.</p><a href="index.html#" class="postmore">Read More...</a>							</div>
+						</div>
+						<div class="clear"></div>
+					</div><!-- post2-->
+					<div class="post">
+						<div class="post-img"><img src="images/content/post3.jpg" alt="" class="imgframe" /></div>
+						<div class="entry">
+							<span class="entry-utility">June 20, 2011 | Posted by: <a href="index.html#">Admin</a> | <a href="index.html#">15 Comments</a></span>
+							<h2 class="posttitle">Lorem ipsum dolor sit amet consectetur.</h2>
+							<div class="entry-content">
+							<p>Pellentesque erat turpis, interdum ut sagittis suscipit, pellentesque dignissim tellus. Fusce posuere erat et mauris consectetur ac consequat eros varius.</p><a href="index.html#" class="postmore">Read More...</a>							</div>
+						</div>
+						<div class="clear"></div>
+					</div><!-- post3-->
+					<div class="pagenavi">
+						<a href="index.html#" class="page">1</a><span class="current">2</span><a href="index.html#" class="page">3</a><a href="index.html" class="nextpostslink">&raquo;</a>					</div><!-- end pagenavi -->
+					<div class="clear"></div>
+				</div><!-- end #page5-->
+				
+				<!-- PAGE 6-->
+				<div class="page" id="page6">
+					<h1 class="pagetitle">Contact us</h1>
+					<p>Maecenas ac ligula felis. Morbi nulla eros, fermentum eu dictum id, molestie quis odio. Proin iaculis, sapien ac congue tincidunt, risus ipsum bibendum justo, sed pharetra nulla lectus at velit. Vestibulum vel enim quis augue elementum eleifend. </p>
+					<div class="one_half">
+					<span><strong>Indonesia</strong></span><br />
+					<p>Vestibulum vel enim quis augue elementum eleifend. In vulputate, lectus non tristique hendrerit, neque nibh hendrerit mi, sed molestie diam lectus at nisi. </p>
+					</div>
+					<div class="one_half last">
+					<span><strong>America</strong></span><br />
+					<p>Vestibulum vel enim quis augue elementum eleifend. In vulputate, lectus non tristique hendrerit, neque nibh hendrerit mi, sed molestie diam lectus at nisi. </p>
+					</div>
+					<div class="clear"></div><!-- clear float -->
+					<div class="one_half">
+					<h2>Contact Form</h2>
+					<div id="contactform">
+					  <form id="contact" action="index.html">
+						<fieldset>
+						  <span class="error" id="name_error">Please enter name !</span>
+						  <span class="error" id="email_error">Please enter email address !</span>
+						  <span class="error" id="email_error2">Please enter valid email address !</span>
+						  <span class="error" id="msg_error">Please enter message !</span>
+						  <input type="text" name="name" id="name" size="30" value="your name" onblur="if (this.value == ''){this.value = 'your name'; }" onfocus="if (this.value == 'your name') {this.value = ''; }" class="text-input" />
+						  <input type="text" name="email" id="email" size="30" value="your email" onblur="if (this.value == ''){this.value = 'your email'; }" onfocus="if (this.value == 'your email') {this.value = ''; }" class="text-input" />
+						 <textarea cols="20" rows="10" name="msg" id="msg">your message</textarea><br />
+						   <input type="submit" name="submit" class="button" id="submit_btn" value="Send Message"/><br /><br /><br />
+						</fieldset>
+					  </form>
+					</div><!-- end #contactform -->
+					</div>
+					<div class="one_half last">
+					<h2>Brand Office</h2>
+					<p>
+					Exprecious Brand Office<br />
+					1234 Address City. TS 5678<br />
+					City, Country					</p>
+					<ul class="listcustom">
+						<li><span class="left">Telephone:</span> <span class="right">0800-123456 </span></li>
+						<li><span class="left">Faximillie:</span> <span class="right">0800-123457 </span></li>
+						<li><span class="left">Email:</span><span class="right"><a href="mailto:testmail@templatesquare.com" class="mail">testmail@templatesquare.com</a></span> </li>
+					</ul>
+					</div>
+					<div class="clear"></div><!-- clear float -->
+				</div><!-- end #page6-->
+			</div><!-- end #maincontent-->
+			</div><!-- end #main-->
+		</div><!-- end #content-->
+		<div id="footer">
+			<div id="copyright">Copyright &copy;2011 Exprecious.  All Rights Reserved</div>
+		</div><!-- end #footer-->
+	</div><!-- end #container-->
+</div>
+<!-- end #wrapper-->
+	<script type="text/javascript"> Cufon.now(); Cufon.refresh(); </script> <!-- to fix cufon problems in IE browser -->
+</body>
+</html>
